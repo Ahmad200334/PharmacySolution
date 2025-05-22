@@ -4,21 +4,21 @@
         <name>Pharmacy.WebApi</name>
     </assembly>
     <members>
-        <member name="M:Pharmacy.WebApi.Controllers.AccountController.login2(Pharmacy.Core.DTO.LoginDTO)">
+        <member name="M:Pharmacy.WebApi.Controllers.AccountController.login2(Pharmacy.Core.DTO.AuthenticationDTO.LoginDTO)">
             <summary>
             Use this method to login 
             </summary>
             <param name="loginDTO"></param>
             <returns>it will return AuthorizationResponse include :token ,refresh token</returns>
         </member>
-        <member name="M:Pharmacy.WebApi.Controllers.AccountController.GenerateNewAccessToken(Pharmacy.Core.DTO.TokenModelDTO)">
+        <member name="M:Pharmacy.WebApi.Controllers.AccountController.GenerateNewAccessToken(Pharmacy.Core.DTO.AuthenticationDTO.TokenModelDTO)">
             <summary>
             It use to generate new Token
             </summary>
             <param name="tokenModel"></param>
             <returns>it will return a new token as response</returns>
         </member>
-        <member name="M:Pharmacy.WebApi.Controllers.AccountController.ForgotPassword(Pharmacy.Core.DTO.ForgotPasswordDTO)">
+        <member name="M:Pharmacy.WebApi.Controllers.AccountController.ForgotPassword(Pharmacy.Core.DTO.EmailDTO.ForgotPasswordDTO)">
             <summary>
             Use when you forget password
             </summary>

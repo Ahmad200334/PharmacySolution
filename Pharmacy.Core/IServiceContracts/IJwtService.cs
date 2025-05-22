@@ -1,5 +1,5 @@
 ﻿using Pharmacy.Core.Domain.Entities.IdentityEntities;
-using Pharmacy.Core.DTO;
+using Pharmacy.Core.DTO.AuthenticationDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

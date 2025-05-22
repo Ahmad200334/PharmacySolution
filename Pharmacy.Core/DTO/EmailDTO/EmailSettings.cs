@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pharmacy.Core.DTO
+namespace Pharmacy.Core.DTO.EmailDTO
 {
 
     public class EmailSettings

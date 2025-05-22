@@ -4,8 +4,8 @@ using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using Pharmacy.Core.IServiceContracts;
-using Pharmacy.Core.DTO;
 using MailKit.Security;
+using Pharmacy.Core.DTO.EmailDTO;
 
 public class EmailService : IEmailService
 {
