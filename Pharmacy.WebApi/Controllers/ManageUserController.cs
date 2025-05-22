@@ -99,44 +99,38 @@ namespace Pharmacy.WebApi.Controllers
 
             return NoContent();
         }
-         
-        [HttpPut]
-      
-        public async Task<IActionResult> UpdateUser([FromBody] EmployeeUpdateRequest request)
-        {
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] EmployeeUpdateRequest request)
+        {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            if (id != request.EmployeeID)
+                return BadRequest("معرف الموظف غير متطابق.");
 
-                 var employeeResponse = await _employeeService.GetByIdAsync(request.EmployeeID);
+            var employeeResponse = await _employeeService.GetByIdAsync(id);
+            if (employeeResponse == null)
+                return NotFound("الموظف غير موجود");
 
-            ApplicationUser user=await 
-            _userManager.FindByEmailAsync(employeeResponse.Email);
+            var user = await _userManager.FindByEmailAsync(employeeResponse.Email);
+            if (user == null)
+                return NotFound("المستخدم غير موجود");
 
-            if (employeeResponse == null || user == null)
-                return NotFound("الموظف أو المستخدم غير موجود");
-
-            user.UserName = request.Name??employeeResponse.Name;
-            user.Email = request.Email?? employeeResponse.Email;
+            user.UserName = request.Name ?? employeeResponse.Name;
+            user.Email = request.Email ?? employeeResponse.Email;
             user.PhoneNumber = request.phone ?? employeeResponse.phone;
-             
+
             var updateUserResult = await _userManager.UpdateAsync(user);
-
             if (!updateUserResult.Succeeded)
-            {
                 return BadRequest(updateUserResult.Errors);
-            }
 
-            // تحديث بيانات الموظف (HireDate, Salary)
             var success = await _employeeService.UpdateAsync(request);
-
             if (!success)
                 return NotFound("فشل تحديث بيانات الموظف");
 
             return Ok("تم تحديث المستخدم بنجاح");
         }
-        
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)

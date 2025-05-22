@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Pharmacy.Core.ConfiurationSettings;
 using Pharmacy.Core.Domain.Entities.IdentityEntities;
-using Pharmacy.Core.DTO;
+using Pharmacy.Core.DTO.AuthenticationDTO;
 using Pharmacy.Core.IServiceContracts;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

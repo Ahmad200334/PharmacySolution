@@ -1,4 +1,4 @@
-﻿namespace Pharmacy.Core.DTO
+﻿namespace Pharmacy.Core.DTO.AuthenticationDTO
 {
     public class AuthenticationResponse
     {

@@ -26,7 +26,7 @@ namespace Pharmacy.Core.Services
  
             await _employeesRepository.AddEmployeeAsync(employee);
 
-
+            
             return employee.ToEmployeeResponse();
         }
 

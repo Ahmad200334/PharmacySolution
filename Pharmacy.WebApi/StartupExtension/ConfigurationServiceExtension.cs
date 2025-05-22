@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Pharmacy.Core.ConfiurationSettings;
 using Pharmacy.Core.Domain.Entities.IdentityEntities;
 using Pharmacy.Core.Domain.IRepositoriesContracts;
-using Pharmacy.Core.DTO;
+using Pharmacy.Core.DTO.EmailDTO;
 using Pharmacy.Core.IServiceContracts;
 using Pharmacy.Core.Services;
 using Pharmacy.Infrastructure.Data;
@@ -128,6 +128,13 @@ namespace Pharmacy.WebApi.StartupExtension
 
             services.AddTransient<IEmployeesRepository, EmployeesRepositoy>();
             services.AddTransient<IEmployeeService, EmployeeService>();
+
+
+            //Supplier 
+
+            services.AddTransient<ISuppliersRepository, SuppliersRepository>();
+            services.AddTransient<ISupplierService, SupplierService>();
+
 
             return services;
         }
